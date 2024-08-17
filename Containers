@@ -1,0 +1,10 @@
+Introduction to docker.
+->Virtual Machine is advancement to Physical Servers 
+->Containers is advancement to virtual machines.
+Concept of virtual machine :
+->When we using our personal personal laptop or physical servers we are not completely using the available resources -> CPU,RAM and hardwares etc.Organizations have thousands of servers.They are paying for these resources.
+->To solve this -> Hypervisor used -> Hypervisor uses the concept of Virtualization -> Virtualiazation used to create lot of virtual machines (vm)or virtual servers on top of your physical servers.
+                                                                                    -> vm is a virtual isolation of ps. -> each vms has its own operating system(os).->on top of this os we run our application.
+->Instead of running a application on a physical servers we can a lot applications on lot of vms on a single physical servers.
+
+
