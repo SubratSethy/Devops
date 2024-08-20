@@ -4,7 +4,30 @@ Introduction to docker.
 Concept of virtual machine :
 ->When we using our personal personal laptop or physical servers we are not completely using the available resources -> CPU,RAM and hardwares etc.Organizations have thousands of servers.They are paying for these resources.
 ->To solve this -> Hypervisor used -> Hypervisor uses the concept of Virtualization -> Virtualiazation used to create lot of virtual machines (vm)or virtual servers on top of your physical servers.
-                                                                                    -> vm is a virtual isolation of ps. -> each vms has its own operating system(os).->on top of this os we run our application.
-->Instead of running a application on a physical servers we can a lot applications on lot of vms on a single physical servers.
+                                                                                    -> vm is a virtual isolation of ps. -> each vms has its own operating system(os).
+                                                                                                                        -> Because of separate os vms are logically separated from each other-> results in vms are very secure.  
+                                                                                                                        -> on top of this os we run our application.
+->Instead of running a application on a physical servers we can run a lot applications on lot of vms on a single physical servers.
+->AWS install zen hypervisor on its physical servers->create EC2 instances(virtual machines).->while creating vms you define os(what is ram and cpu of vms)
+
+Then why should we move to containers ?
+-> while running applications on full capacity on vms it not uses 25 CPU,25GB RAM, we are not utilizing the complete resources of vms (ps:100CPU,100GB RAM ->into 4 vms each of 25CPU,25GB RAM).
+-> So containers came to solve this problem.Problems of ps solved to some extent by vms ->Problems of vms solved to some extent by containers.
+-> Containers doesnot have complete Operating System so they are not complete isolate from each other so there is security issue.
+Architecture of Containers.
+->Containers can be created by installing containorization platform example: Docker 
+->2 ways of creating containers.->model 1:installing containorization platform example: Docker on physical servers which has os already installed on it .
+                                ->model 2:installing containorization platform example: Docker on vms which are installed on physical servers which has os already installed on it.
+                                ->Now-a days everyone using model-2 as it is based on vms and cloud as there is less maintaince as we are using vms.
+                                ->for model-1 we have do maintain a system administrator for security fixes and new pathes we have to maintain a datacenter. 
+->Containers are  light weight in nature as they donnot have complete os.->They use the required resources form base os or host os of vms and physical servers they are installed on.
+->Containers have minimal os and base image-> containers are package of appliaction,application libraries, sytsem dependencies->your applicatioon may require system dependencies that may be python, java etc.
+->If we require any other shared libraries except that present on containers that will be used from host os. 
+
+
+                               
+
+
+
 
 
