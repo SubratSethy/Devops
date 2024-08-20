@@ -23,6 +23,17 @@ Architecture of Containers.
 ->Containers are  light weight in nature as they donnot have complete os.->They use the required resources form base os or host os of vms and physical servers they are installed on.
 ->Containers have minimal os and base image-> containers are package of appliaction,application libraries, sytsem dependencies->your applicatioon may require system dependencies that may be python, java etc.
 ->If we require any other shared libraries except that present on containers that will be used from host os. 
+->If we want to create image of your vm we will create a snapshot(image) of our vm ->Size of snapshots(image) may be 1GB(minimal with all dependencies are installed)or may be 2GB.
+->If we consider vm with container then size of the snapshots of container fall between 100(minimal) to 500 MB(it increases to 500 if application has lot of dependencies )
+->so there is significant drop in the size when we consider container.As conbtainer lightweight->easy to ship and deploy one docker container from one containerzation platform to another platform and deploy image to kubernetes.
+->In docker image we use a base image that contains system dependencies,application and application libraries ->they will form docker image or docker container.->so,containers have minimalstic os.
+Docker LifeCycle
+->first write docker file ->using docker commands sent this file to docker engine->use docker commands to create docker image from docker file->write commands to create docker container from docker image.
+                                                                                  -> docker build command                                     -> docker run command
+->Docker is very much dependent on docker engine if docker fails then all the conatainers will go down it is single point of failure.
+->When docker image ios created it creates a lot of layers so it take lot memory space.
+->To solve these problems Buildah comes -> we write shellscript and put all buildah commands in it->it will create docker image.
+
 
 
                                
