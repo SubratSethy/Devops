@@ -33,9 +33,12 @@ Docker LifeCycle
 ->Docker is very much dependent on docker engine if docker fails then all the conatainers will go down it is single point of failure.
 ->When docker image ios created it creates a lot of layers so it take lot memory space.
 ->To solve these problems Buildah comes -> we write shellscript and put all buildah commands in it->it will create docker image.
-
-
-
+How to push the docker image into a public and private registry by doing this we share this to customers.
+How to reduce the size of the docker image by definition  the size of the image should be small but we by keep adding packages to docker image its size get increased.
+->when containers not running they donot use resources from the kernal(part of host opertaing system)
+->when vms or EC2 instances are created they have os with kernal.
+->All the containers have some system dependencies it should be there as there should be some part of logoical isolation between the containers as they can use all resources from kernal any hacker can get into kubernetes cluster
+ and in one container can get into all the containers.
                                
 
 
