@@ -123,3 +123,28 @@ Images
 An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.
 
 You might create your own images or you might only use those created by others and published in a registry. To build your own image, you create a Dockerfile with a simple syntax for defining the steps needed to create the image and run it. Each instruction in a Dockerfile creates a layer in the image. When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt. This is part of what makes images so lightweight, small, and fast, when compared to other virtualization technologies.
+->If you want to run a python application on ps->download python enviornment and install other requirements->run application
+->If you want to run on vm ->create a vm->create vm image->install python and other requirements->then run application
+->If you want to use docker->After deployment user download docker image -> use docker command docker run to run apllication.
+You can create an Ubuntu EC2 Instance on AWS and run the below commands to install docker.
+
+sudo apt update->used update the repo.
+sudo is used to get access to the reposirtry.
+sudo apt install docker.io -y->install docker on vm->-y stands for user who is installing is agree with it.
+apt stands for Advanced Package Tool. It is a command-line package management utility used in Debian-based Linux distributions, such as Ubuntu. 
+->start Docker daemon:
+You use the below command to verify if the docker daemon is actually started and Active
+sudo systemctl status docker
+
+If you notice that the docker daemon is not running, you can start the daemon using the below command
+
+sudo systemctl start docker
+->docker daemon runs with root user 
+->docker have to be installs using root user bydefault .
+->so have to give permission to root user
+->docker is runnig as root->so no access to ubutu user.
+Grant Access to your user to run docker commands
+To grant access to your user to run the docker command, you should add the user to the Docker Linux group. Docker group is create by default when docker is installed.
+
+sudo usermod -aG docker ubuntu
+
