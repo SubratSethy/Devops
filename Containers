@@ -223,3 +223,29 @@ b8088c305a52: Pushed
 69dd4ccec1a0: Pushed
 c5ff2d88f679: Mounted from library/ubuntu
 latest: digest: sha256:6e49841ad9e720a7baedcd41f9b666fcd7b583151d0763fe78101bb8221b1d88 size: 1157
+->
+->
+Install django 
+first install python->install django using pip command.->import django command to verify whether it is installed or not.
+then install django admin and print(django.get_version()) if it is installed it will give version of django.
+django admin very much similar to ansible galaxy ->ansible galaxy creates a skeleton of the ansible role->similarly dajango admin used to create skeleton when we create project
+and write microservices using django admin.
+-> command is django admin startproject devops->it creates devops(project name) named directory in the current directory and creates skeleton.
+->inside the devops directory there are some files that are project configuration.example:settings.py is file that contains what are the ipos that are to connect 
+and what arae the database you want to connect,secrest keys and any secure information and any django middlewares taht you want to use and any supported templetes.
+it will set the entire configuration for the django project.
+->uris.py file uses for serving the content.
+->instance ip address/port number/demo/->/demo is the context root of our application.Any body who types /demo Url.py will understand that it have to show the content of demo application.
+till now we created a base to bulid our application not yet built the application
+->to create application command is python manage.py startapp demo (application name).It creates a bunch of files in demo directory.
+->In view.py we will write our code.
+
+
+
+'
+
+
+
+
+ 
+
