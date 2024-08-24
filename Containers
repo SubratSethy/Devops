@@ -238,9 +238,66 @@ it will set the entire configuration for the django project.
 ->instance ip address/port number/demo/->/demo is the context root of our application.Any body who types /demo Url.py will understand that it have to show the content of demo application.
 till now we created a base to bulid our application not yet built the application
 ->to create application command is python manage.py startapp demo (application name).It creates a bunch of files in demo directory.
-->In view.py we will write our code.
+->In view.py we will write our code.->IN this file a python function is written index function, it is rendering a simple html file which is stored in a folder called templete 
+and from this the content get served to customer when customer did request.This is the overall workflow of django application.
+->When you do all the changes and prepared the complete application you have to send to QE team Before the exitstance of docker->QE team have to download the github reposiritory 
+or the artifact that you created and crreate dependencies(number of dependencies may vary depending on the application) that present in the requirements.txt file and install them.
+then the actual problem starts the QE team may be on the Linux,windowsor may be on Linux sytem may be using the different distributions of Liunx for that case our commands may not work you will say
+the everything is correct but QE team will say the application not running.This is solved by the Docker.
+->In container we are bundling and packaging everying in the container so that application will run only the Qe team have to install Docker on their machine and use the commands
+docker bulid and docker run -> applcationn will run fine -> because it has the system dependencies in itself that are required to run your application for example your application requires 
+python and pip command to run that will be present within the container along with the source code that is the binary of your application.only in some cases it requires some resources from kernal and 
+in case of system calls also it uses resources from kernal.
+-> for a devops enngineer first thing to conatinarize a application you have to first write a docker file
+-> for user thy have to clone the dockerfile to the reposiritory and run commands dockerbuild and docker run and application will run on their machine.
+-> for a devops engineer first thing you have to do select a base image here i choose ubutu base image.you can use centois base image. 
+
+->RUN apt-get update && \
+    apt-get install -y python3 python3-pip && \  ->this is for ubutu ->if you use centois inplace of apt use  am.
+->from ubutu i choose work directory(where source code get saved).->then move the requirements.txt file(all the dependencies that require to run our application) into the working directory ./app.
+WORKDIR /app
+
+COPY requirements.txt /app
+COPY devops /app
+->this command will copy the source code the .app/ directory.->after combination of source code and all dependencies will form a bundle or package or binary of our application.
+->as we are using ubuntu so we have install python to run python application->if we use FROM Python no need to install python.
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip && \
+
+->django and tzdata are dependencies that are present insside the requirements.txt file these are required to run our python application.
+ pip install -r requirements.txt && \
+    cd devops
+these commands are used to install all the dependencies.now our configuration is done now our application ready to use.
 
 
+
+
+
+FROM ubuntu
+
+WORKDIR /app
+
+COPY requirements.txt /app
+COPY devops /app
+
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip && \
+c
+
+ENTRYPOINT ["python3"]
+CMD ["manage.py", "runserver", "0.0.0.0:8000"]
+all the contents inside ENTRYPOINT are not rewriteable i.e; doesnot change.
+here python3 is there because to run pyhton appliaction it is needed.
+CMD is configurable i.e; we can change the contents inside it.
+if someone used the port number 8000 to run any other application the port 8000 can not be used to run this python application then user have to change the port number to run the python application.
+because the container given by the server is running on port number 8000.
+
+example/python-web-app docker build . this command will build our appliaction.
+docker images  command will show the docker image or application that already built.
+docker run will run our docker container. 
+after this also our appliaction will not run beacause our appliaction is running in container and my container is at 8000 port but we are trying to access the django appliaction on 
+EC2 instance not on container. so we need to do port mapping from container to host by this command: docker run -p 8000:8000 
+after this our django application will run on our machine.
 
 '
 
