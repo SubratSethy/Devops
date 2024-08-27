@@ -299,7 +299,22 @@ after this also our appliaction will not run beacause our appliaction is running
 EC2 instance not on container. so we need to do port mapping from container to host by this command: docker run -p 8000:8000 
 after this our django application will run on our machine.
 
-'
+
+
+bind  mounts : allows you bind a  specific directory on the host with the specific folder on the container.if a new container came you cxan find the folder of it with the existing .app/ folder of host.
+->binds folder on the container with one folder on the host let's say ./app->containbesr canm read that folder on the host.samer is in the case of writing comntainer writes inside its on folder
+if the containewr goes down we can found the all the formation on the host.
+->container wants to read folder information that is on host but without bind mounbts is not possible container only can use resources like cpu,memory,storage etc from host operating system.
+volumes : also does same kind of solution but provides a better lifecycle.
+docker cli-> docker command-> create volume on host ->volume is partition that you creating on host->you can create volume and destroy a volume->you can take volume from one container and ten
+attach it to the another container.->at same point of time you can attach a volume to both of the containers.
+by using volume you are attaching a specific folder or file system to the container and advantage is not provide the directory details that is not saying ./app folder on host should assign
+to the folder on container instead you telling docker to create volume on host. df command create disk and volume will create volumesonn host will get mounted to the container.
+
+
+
+
+
 
 
 
